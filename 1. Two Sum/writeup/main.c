@@ -1,3 +1,7 @@
+/**
+* Compiler: gcc main.c twoSum.c -g -Wall -O3 -o a.out
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "twoSum.h"
@@ -15,12 +19,11 @@ int main(void)
     int target = 9;
     int *returnSize;
 
-
     int *ans = twoSum(nums, numsSize, target, returnSize);
 
     printf("%d %d", ans[0], ans[1]);
 
-    free(nums);
+    free(nums);     // 释放堆空间
     free(ans);
 
     return 0;

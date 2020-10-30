@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 
+/* 暴力破解法：遍历每一个i和j，直到找到num[i] + num[j] == target为止 */
 int* twoSum(int* nums, int numsSize, int target, int* returnSize) 
 {
     for (int i = 0; i < numsSize; i++) {
