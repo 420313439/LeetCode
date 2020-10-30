@@ -1,0 +1,41 @@
+// gcc main.c islandPerimeter.c -g -Wall -O3 -o a.out 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "islandPerimeter.h"
+
+int main(void)
+{
+    int row = 1;
+    int col = 1;
+
+    /* 二维数组空间分配 */
+    int **grid = (int **)malloc(sizeof(int *) * row);
+    for (int i = 0; i < row; i++) 
+        grid[i] = (int *)malloc(sizeof(int) * col);
+
+    /* 二维数组初始化 */
+    time_t t;
+    srand((unsigned)time(&t));
+
+    for (int i = 0; i < row; i++)
+        for (int j = 0; j < col; j++)
+            grid[i][j] = rand() % 2;
+
+    /* 打印二维数组 */
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++)
+            printf("%d ", grid[i][j]);
+        printf("\n");
+    }
+
+    int gridSize = row;
+    int *gridColSize = &col;
+
+    int ans = islandPerimeter(grid, gridSize, gridColSize);
+
+    printf("Answer is: %d\n", ans);
+
+    return 0;
+}
